@@ -1,0 +1,51 @@
+<%- include('./partials/header') %> <%- include('./partials/navbar') %>
+
+<main class="my-8">
+  <div class="container mx-auto px-6">
+    <h3 class="text-gray-700 text-2xl font-medium">Documentary</h3>
+    <div
+      class="
+        grid
+        gap-6
+        grid-cols-1
+        sm:grid-cols-2
+        lg:grid-cols-3
+        xl:grid-cols-4
+        mt-6
+      "
+    >
+      <% data.forEach(function(movie){ %>
+      <div
+        class="
+          w-full
+          max-w-sm
+          mx-auto
+          rounded-md
+          shadow-md
+          overflow-hidden
+          bg-white
+        "
+      >
+        <div
+          class="flex items-end justify-end h-56 w-full bg-cover"
+          style="
+            background-image: url('https://image.tmdb.org/t/p/original<%= movie.backdrop_path %>');
+          "
+        >
+         
+        </div>
+        <div class="px-5 py-3">
+          <h3 class="text-1xl uppercase">
+           <%= movie.title || movie.name || movie.original_name ||
+            movie.original_title %>
+          </h3>
+          <p class="text-sm">Rating: <%= movie.vote_average %></p>
+          <p class="text-sm">Release: <%= movie.release_date || movie.first_air_date %></p>
+        </div>
+      </div>
+      <%})%>
+    </div>
+  </div>
+</main>
+
+<%- include('./partials/footer') %>

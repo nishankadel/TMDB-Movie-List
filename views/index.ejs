@@ -1,0 +1,47 @@
+<%- include('./partials/header') %> <%- include('./partials/navbar') %> 
+<% if (data) {%>
+<div
+  class="w-full h-screen bg-center bg-no-repeat bg-cover"
+  style="
+    background-image: url('https://image.tmdb.org/t/p/original<%= data.backdrop_path %>');
+  "
+>
+  <div
+    class="
+      w-full
+      h-screen
+      bg-opacity-50 bg-black
+      flex
+      justify-center
+      items-center
+    "
+  >
+    <div class="mx-4 text-center text-white">
+      <h1 class="font-bold text-6xl mb-4"><%= data.original_name || data.name %> </h1>
+      <h2 class="font-bold text-1xl mb-4"><%= data.overview %></h2>
+      <h2 class="font-bold text-sm mb-12"><%= data.first_air_date %></h2>
+      <div>
+       
+        <a
+          href=""
+          class="
+           bg-blue-500
+            rounded-md
+            font-bold
+            text-white text-center
+            px-4
+            py-3
+            transition
+            duration-300
+            ease-in-out
+            hover:bg-blue-600
+            ml-2
+          "
+        >
+          View Trending
+        </a>
+      </div>
+    </div>
+  </div>
+</div>
+<% } %> <%- include('./partials/footer') %>
